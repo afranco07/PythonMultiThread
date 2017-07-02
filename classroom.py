@@ -2,7 +2,7 @@
 
 import threading
 
-class ClassRoom():
+class ClassRoom(object):
     """The classroom class"""
 
     def __init__(self, max, num_students, group):
