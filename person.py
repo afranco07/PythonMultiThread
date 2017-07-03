@@ -16,6 +16,7 @@ class Person(object):
         """
         self.msg("is taking a break...")
         time.sleep(4)
+        self.msg("Break over!")
 
     def msg(self, message):
         """
