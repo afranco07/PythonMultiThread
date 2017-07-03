@@ -22,13 +22,12 @@ class Student(Person, threading.Thread):
         self.exam_2 = 0
         self.exam_3 = 0
         self.arrival_time = 1000
+        self.name = "Student-" + str(Student.id_number)
         Student.id_number += 1
-        self.number = Student.id_number
 
     def run(self):
         """Implementing the thread run method"""
-        print("The thread " + str(self.number) + " has started running...")
-        sleep_time = random.randrange(5)
-        print(str(self.number) + " is sleeping for "+ str(sleep_time) + " second(s)")
-        time.sleep(sleep_time)
-        print(str(self.number) + " is done!")
+        random_time = random.randrange(5)
+        print(self.name + " will arrive in " + str(random_time) + " seconds...")
+        time.sleep(random_time)
+        print(self.name + " is here!")
