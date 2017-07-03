@@ -1,9 +1,11 @@
+"""The main function where everything comes together"""
+
 from student import Student
 from instructor import Instructor
 
-prof = Instructor()
-s1 = Student()
-s2 = Student()
-prof.start()
-s1.start()
-s2.start()
+instructor = Instructor()
+student_1 = Student()
+student_2 = Student()
+instructor.start()
+student_1.start()
+student_2.start()

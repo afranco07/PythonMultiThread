@@ -27,7 +27,9 @@ class Student(Person, threading.Thread):
 
     def run(self):
         """Implementing the thread run method"""
+        threading.current_thread().setName(self.name)
         random_time = random.randrange(5)
-        print(self.name + " will arrive in " + str(random_time) + " seconds...")
+        super().msg("will arrive in " + str(random_time) + " seconds...")
         time.sleep(random_time)
-        print(self.name + " is here!")
+        super().msg("is here!")
+        super().take_break()

@@ -13,6 +13,6 @@ class Instructor(Person, threading.Thread):
 
     def run(self):
         random_time = random.randrange(5)
-        print("The instructor will arrive in " + str(random_time) + " seconds...")
+        super().msg("The instructor will arrive in " + str(random_time) + " seconds")
         time.sleep(random_time)
-        print("The instructor is here!")
+        super().msg("The instructor is here!")
