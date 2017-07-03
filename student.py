@@ -66,5 +66,6 @@ class Student(Person, threading.Thread):
 
                 Person.class_room.instructor_sem.acquire()
                 super().msg("is in the class!")
-                
+            else:
+                #Person.class_room.
 
