@@ -5,9 +5,9 @@ import threading
 class ClassRoom(object):
     """The classroom class"""
 
-    def __init__(self, max_number, num_students, group):
+    def __init__(self, max_cap, num_students, group):
         self.current_capacity = 0
-        self.max_capacity = max_number
+        self.max_capacity = max_cap
         self.exam_number = 1
         self.priority = 10
         self.missed_students = 0

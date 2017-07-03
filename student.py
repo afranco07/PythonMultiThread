@@ -25,11 +25,46 @@ class Student(Person, threading.Thread):
         self.name = "Student-" + str(Student.id_number)
         Student.id_number += 1
 
+    def print_grades(self):
+        """Return the students grades"""
+        return "exam 1 = " + str(self.exam_1) + "; exam 2 = " + str(self.exam_2) + \
+               "; exam 3 = " + str(self.exam_3)
+    
+    def grade_exam(self):
+        """
+        Give a grade to exam, depending on which test 
+        was taken
+        """
+        current_exam = Person.class_room.exam_number
+        grade = random.randrange(100)
+
+        if current_exam == 1:
+            self.exam_1 = grade
+        elif current_exam == 2:
+            self.exam_2 = grade
+        else:
+            self.exam_3 = grade
+
     def run(self):
         """Implementing the thread run method"""
         threading.current_thread().setName(self.name)
-        random_time = random.randrange(5)
-        super().msg("will arrive in " + str(random_time) + " seconds...")
-        time.sleep(random_time)
-        super().msg("is here!")
-        super().take_break()
+
+        while True:
+            if Person.class_room.exam_number > 3:
+                break
+
+            random_time = random.randrange(5)
+            super().msg("will arrive in " + str(random_time) + " seconds...")
+            time.sleep(random_time)
+            super().msg("is here!")
+
+            Student.mutex_semaphore.acquire()
+            if Person.class_room.current_capacity < Person.class_room.max_capacity:
+                super().msg("is waiting for class to open...")
+                Person.class_room.current_capacity += 1
+                Student.mutex_semaphore.release()
+
+                Person.class_room.instructor_sem.acquire()
+                super().msg("is in the class!")
+                
+

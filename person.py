@@ -7,7 +7,7 @@ from classroom import ClassRoom
 class Person(object):
     """The base class where the instructor and student extend from"""
 
-    class_room = ClassRoom(2, 3, 1)
+    class_room = ClassRoom(1, 2, 1)
     TIME = int(time.time() * 1000)
 
     def take_break(self):
@@ -24,4 +24,5 @@ class Person(object):
         a similar format
         """
         current_time = int(time.time() * 1000)
-        print("[" + str(current_time - Person.TIME) + "]" + threading.current_thread().getName() + ": " + message)
+        print("[" + str(current_time - Person.TIME) + "]" + \
+              threading.current_thread().getName() + ": " + message)
