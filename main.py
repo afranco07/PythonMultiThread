@@ -3,9 +3,13 @@
 from student import Student
 from instructor import Instructor
 
-instructor = Instructor()
-student_1 = Student()
-student_2 = Student()
-instructor.start()
-student_1.start()
-student_2.start()
+INSTRUCTOR = Instructor()
+INSTRUCTOR.start()
+
+STUDENT_LIST = []
+
+NUMBER_OF_STUDENTS = 14
+
+for index in range(NUMBER_OF_STUDENTS):
+    STUDENT_LIST.append(Student())
+    STUDENT_LIST[index].start()

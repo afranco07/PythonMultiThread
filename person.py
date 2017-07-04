@@ -7,7 +7,7 @@ from classroom import ClassRoom
 class Person(object):
     """The base class where the instructor and student extend from"""
 
-    class_room = ClassRoom(1, 2, 1)
+    class_room = ClassRoom(8, 14, 3)
     TIME = int(time.time() * 1000)
     WAIT_FLAG = threading.Event()
 
