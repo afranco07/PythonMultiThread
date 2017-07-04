@@ -99,7 +99,7 @@ class Student(Person, threading.Thread):
 
         Person.class_room.i_am_done.release()
         Person.class_room.wait_for_finish.acquire()
-        print(super().msg(self.print_grades()))
+        super().msg(self.print_grades())
 
         Person.class_room.i_am_done.release()
         Person.class_room.wait_for_finish.acquire()

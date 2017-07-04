@@ -60,4 +60,5 @@ class Instructor(Person, threading.Thread):
             Person.class_room.wait_for_finish.release()
 
         Person.class_room.go_home_prof.acquire(Person.class_room.num_students)
+        time.sleep(1)
         super().msg("All of the students are gone. I can go home now :D")
