@@ -37,3 +37,18 @@ class Instructor(Person, threading.Thread):
             
             time.sleep(10)
             super().msg("Exam over! Collecting exams now...")
+            #threading.current_thread().Event().set()
+            Person.WAIT_FLAG.set()
+            Person.class_room.exam_number += 1
+            #threading.current_thread().Event().clear()
+            Person.WAIT_FLAG.clear()
+
+            Person.class_room.end_exam.acquire(Person.class_room.max_capacity)
+
+            for _ in range(Person.class_room.missed_students):
+                Person.class_room.missed_exam.release()
+            
+            Person.class_room.missed_students = 0
+            Person.class_room.seats.clear()
+            Person.class_room.current_capacity = 0
+            super().take_break()

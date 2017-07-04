@@ -9,6 +9,7 @@ class Person(object):
 
     class_room = ClassRoom(1, 2, 1)
     TIME = int(time.time() * 1000)
+    WAIT_FLAG = threading.Event()
 
     def take_break(self):
         """
