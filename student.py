@@ -86,7 +86,7 @@ class Student(Person, threading.Thread):
                 #threading.current_thread().wait(timeout=20)
                 Person.WAIT_FLAG.wait(timeout=20)
 
-                super().msg("The teacher collected my exam! My priority was 10")
+                super().msg("The teacher collected my exam! Leaving the room now...")
                 Person.class_room.end_exam.release()
 
                 super().take_break()

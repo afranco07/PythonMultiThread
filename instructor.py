@@ -37,10 +37,9 @@ class Instructor(Person, threading.Thread):
             
             time.sleep(10)
             super().msg("Exam over! Collecting exams now...")
-            #threading.current_thread().Event().set()
             Person.WAIT_FLAG.set()
             Person.class_room.exam_number += 1
-            #threading.current_thread().Event().clear()
+            time.sleep(2)
             Person.WAIT_FLAG.clear()
 
             Person.class_room.end_exam.acquire(Person.class_room.max_capacity)
@@ -52,3 +51,13 @@ class Instructor(Person, threading.Thread):
             Person.class_room.seats.clear()
             Person.class_room.current_capacity = 0
             super().take_break()
+
+        Person.class_room.i_am_done.acquire(Person.class_room.max_capacity)
+        for _ in range(Person.class_room.num_students):
+            Person.class_room.wait_for_finish.release()
+        Person.class_room.i_am_done.acquire(Person.class_room.num_students)
+        for _ in range(Person.class_room.num_students):
+            Person.class_room.wait_for_finish.release()
+
+        Person.class_room.go_home_prof.acquire(Person.class_room.num_students)
+        super().msg("All of the students are gone. I can go home now :D")
