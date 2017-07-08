@@ -14,4 +14,4 @@ The first parameter is the maximum number of seats inside the class room. The se
 
 Make sure to also update the NUMBER_OF_STUDENTS if you change the number in the person.py class. It will not work if you don't update in both places.
 
-![main file]()
+![main file](https://raw.githubusercontent.com/afranco07/PythonMultiThread/master/student_number.png)
