@@ -7,11 +7,22 @@ This project is an example of multithreading in python. Simulates students rushi
 
 ## Changing the parameters
 You can change the number of students and how many students per group in the person.py class:
+```python
+class Person(object):
+    """The base class where the instructor and student extend from"""
 
-![person class file](https://raw.githubusercontent.com/afranco07/PythonMultiThread/master/change_parameters_class.png)
+    class_room = ClassRoom(8, 14, 3)
+    TIME = int(time.time() * 1000)
+    WAIT_FLAG = threading.Event()
+```
 
 The first parameter is the maximum number of seats inside the class room. The second parameter is the total number of student threads in the program. The third parameter how many students per group.
 
 Make sure to also update the NUMBER_OF_STUDENTS if you change the number in the person.py class. It will not work if you don't update in both places.
+```python
+NUMBER_OF_STUDENTS = 14
 
-![main file](https://raw.githubusercontent.com/afranco07/PythonMultiThread/master/student_number.png)
+for index in range(NUMBER_OF_STUDENTS):
+    STUDENT_LIST.append(Student())
+    STUDENT_LIST[index].start()
+```
