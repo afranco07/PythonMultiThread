@@ -5,7 +5,7 @@ This project is an example of multithreading in python. Simulates students rushi
 
 1. Run the command `python3 main.py`
 
-2. OPTIONAL: Change the parameters for different effects [link](#Changing-the-parameters)
+2. OPTIONAL: Change the parameters for different effects [link](#changing-the-parameters)
 
 ## Video Demo
 
